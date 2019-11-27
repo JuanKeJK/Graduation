@@ -1,0 +1,36 @@
+{% extends "base_person.html" %}
+
+{% block page_content %}
+    <div class="container">
+        {{ super() }}
+        <div class="col-md-10 content">
+            <div class="content-body">
+                <div class="page-header">
+                    <h1>个人资料</h1>
+                </div>
+                <div class="col-md-2">
+                    <img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=128) }}"><br/><br/>
+                    <a class="col-md-12">修改头像</a>
+                </div>
+                <div class="col-md-10">
+                    <div class="col-md-10">
+                        <h4>昵称:</h4>
+                        <h4>邮箱:&nbsp;&nbsp;&nbsp;<a>联系我</a></h4>
+                        <hr/>
+                        <ul class="list-unstyled">
+                            <li><h4>学号：</h4></li>
+                            <li><h4>实名：{{ user.name }}</h4></li>
+                            <li><h4>性别：</h4></li>
+                            <li><h4>生日：</h4></li>
+                            <li><h4>地址：</h4></li>
+                            <li><h4>班级：</h4></li>
+                            <li><h4>联系方式：</h4></li>
+                            <li><h4>简介：</h4></li>
+                        </ul>
+                    </div>
+                    <a>修改资料</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

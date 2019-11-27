@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+
+{% block page_content %}
+<div class="form-group">
+    <form action="/search">
+         <div class="input-group col-md-3 col-md-offset-9">
+            <input name="search" type="text" class="form-control" placeholder="学号/姓名">
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-default">搜索</button>
+            </span>
+         </div>
+        <br/>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>班级</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.student_id}}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.class_name }}</td>
+                    <td><button type="button" class="btn btn-info"><a href="">查看</a></button></td>
+                    <td><button type="button" class="btn btn-danger">移除</button></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+    {% if pagination %}
+    <div class="pagination">
+        {{ macros.pagination_widget(pagination, 'main.index') }}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+    <div class="col-md-2 nav">
+        <ul class="nav nav-pills nav-stacked">
+            <li><a href="{{ url_for('main.profile') }}">个人资料</a></li>
+            <li><a href="#">我的学生</a></li>
+            <li><a href="#">所有老师</a></li>
+            <li><a href="{{ url_for('main.show_students') }}">所有学生</a></li>
+        </ul>
+    </div>
+{% endblock %}
